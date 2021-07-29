@@ -6,15 +6,46 @@
 
         <title>JSValidator</title>
 
-        <meta charset='utf-8'>
+        <meta charset="utf-8">
 
-        <link rel='stylesheet' type='text/css' href='./css/style.css'>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
 
     </head>
 
     <body>
-        <form>
+        <form action="/endpoint.php" id="myForm" method="POST">
 
+            <div>
+                <label>Nombre: </label>
+                <input 
+                    class="JSValidator" 
+                    type="text" 
+                    name="name"
+                    data-validators="required length">
+                
+            </div>  
+
+            <div>
+                <label>Email: </label>
+                <input 
+                    class="JSValidator" 
+                    type="text" 
+                    name="email"
+                    data-validators="required">
+                
+            </div>
+
+            <button type="submit">Enviar</button>
+            
+        </form>
+
+        <script src="./js/jsvalidator.js"</script>
+
+        <script>
+        
+            const myFormValidator = new JSValidator('myForm').init().setAjax();
+        
+        </script>
 
 
     </body>
